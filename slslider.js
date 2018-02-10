@@ -9,24 +9,22 @@ $(document).ready(function(){
 function init_slslider() {
 
     if($('#slslider').length > 0) {
-        var maxcnt = $('#slslider div').length;
-        $('#slider'+slcnt).fadeOut(function(){
-            
-
-           
-           
-        });
-        console.log(slcnt+" "+maxcnt);
-        if(slcnt == maxcnt) {
-            slcnt = 1;
-            $('#slider'+slcnt).fadeIn(function(){
-                setTimeout("$('#slslider div').css('display','block')",delay/2);
-            });
+        var maxcnt = $('#slslider div').length-1;
+       
+        if($('#slider'+slcnt).css('opacity') == 1) {
+        	
+        	$('#slider'+slcnt).addClass('hide');
+        	if(slcnt == maxcnt) {
+	            slcnt = 1;
+	        } else {
+	            slcnt += 1;
+	        }
         } else {
-            slcnt += 1;
+        	//$('#slider'+slcnt).removeClass('hide');
+        	$('#slslider div').removeClass('hide');
+        	slcnt = 1
         }
-
-
+	
     }
 
 }
